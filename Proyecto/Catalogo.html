@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Demon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #232323;
+            padding: 15px;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        .hero {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            font-size: 48px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #f5f5f5;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .filters input[type="search"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 10px;
+        }
+
+        .filters button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .catalogue {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .catalogue-item {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .catalogue-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .catalogue-item h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .catalogue-item p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #232323;
+        }
+
+        footer a {
+            margin: 0 10px;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+    <img src="ImagenesProyecto/Letras loog.png" alt="Banner">
+        </div>
+        <nav>
+            <button onclick="window.location.href='Inicio.html'">Inicio</button>
+            <button onclick="window.location.href='Contacto.html'">Contacto</button>
+            <img src="ImagenesProyecto/Logo.png" alt="Logo1">
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="ImagenesProyecto/r1.jpg" alt="Motorcycle Banner">
+    </section>
+
+    <section class="filters">
+        <input type="search" placeholder="Buscar">
+        <button>Nuevos</button>
+        <button>Precios más caros</button>
+        <button>Precios más baratos</button>
+        <button>Rating</button>
+    </section>
+
+    <section class="catalogue">
+        <div class="catalogue-item">
+            <img src="ImagenesProyecto/r111.jpg" alt="Daemon R1000">
+            <h2>Daemon R1000</h2>
+            <p>49.999 €</p>
+        </div>
+        <div class="catalogue-item">
+            <img src="ImagenesProyecto/multi.jpg" alt="Daemon World">
+            <h2>Daemon World</h2>
+            <p>24.999 €</p>
+        </div>
+        <div class="catalogue-item">
+            <img src="ImagenesProyecto/sr.jpg" alt="Daemon Road">
+            <h2>Daemon Road</h2>
+            <p>32.000 €</p>
+        </div>
+        <div class="catalogue-item">
+            <img src="ImagenesProyecto/aaaaa.jpg" alt="Daemon Devil">
+            <h2>Daemon Devil</h2>
+            <p>14.999 €</p>
+        </div>
+        <div class="catalogue-item">
+            <img src="ImagenesProyecto/yz.jpg" alt="Daemon ctr450">
+            <h2>Daemon ctr450</h2>
+            <p>9.999 €</p>
+        </div>
+        <div class="catalogue-item">
+            <img src="ImagenesProyecto/asasasasasas.jpg" alt="Daemon Ride1100">
+            <h2>Daemon Ride1100</h2>
+            <p>19.950 €</p>
+        </div>
+    </section>
+
+    <footer>
+        <img src="ImagenesProyecto/RedesSociales.jpg" alt="Redes sociales">
+    </footer>
+
+</body>
+</html>

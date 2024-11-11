@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos - Demon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 24px;
+        }
+
+        .contacto-section {
+            background-color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .contacto-section h2 {
+            font-size: 28px;
+        }
+
+        .contacto-section .info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .contacto-section .info p {
+            margin: 10px 0;
+        }
+
+        .phone-number {
+            background-color: #eaeaea;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 22px;
+            margin-top: 20px;
+        }
+
+        .subscribe-section {
+            margin-top: 40px;
+        }
+
+        .subscribe-section p {
+            font-size: 18px;
+        }
+
+        .subscribe-section input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 300px;
+        }
+
+        .subscribe-section input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .ratings {
+            margin-top: 30px;
+        }
+
+        .ratings span {
+            font-size: 30px;
+            color: gold;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #232323;
+        }
+
+        footer a {
+            margin: 0 10px;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+    
+        footer .payment-icons img {
+            width: 40px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="ImagenesProyecto/Logo.png" alt="Demon Logo">
+        <h1>CONTACTOS</h1>
+        <img src="ImagenesProyecto/Letras loog.png" alt="Letras">
+        <nav>
+            <button onclick="window.location.href='Inicio.html'">Inicio</button>
+            <button onclick="window.location.href='Catalogo.html'">Catalogo</button>
+        </nav>
+    </header>
+
+    <div class="contacto-section">
+        <h2>Si quieres contactar con nosotros puedes hacerlo por:</h2>
+        <div class="info">
+            <p>Llamando a nuestro Servicio de Atención al cliente</p>
+            <div class="phone-number">602 24 79 04</div>
+        </div>
+
+        <div class="subscribe-section">
+            <p>¡Suscríbete a nuestras noticias con novedades y ofertas increíbles!</p>
+            <form action="#" method="post">
+                <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                <input type="submit" value="Suscribirse">
+                <p>Al inscribirte apruebas la <a href="#">Política de privacidad</a></p>
+            </form>
+        </div>
+
+        <div class="ratings">
+            <h3>VALORACIONES</h3>
+            <span>★ ★ ★ ★ ☆</span>
+        </div>
+    </div>
+
+    <footer>
+                <img src="ImagenesProyecto/RedesSociales.jpg" alt="Redes">
+        
+
+        
+
+        <div>
+            <a href="#">Aviso Legal</a> | 
+            <a href="#">Política y privacidad</a> | 
+            <a href="#">Política de cookies</a>
+        </div>
+    </footer>
+
+</body>
+</html>
