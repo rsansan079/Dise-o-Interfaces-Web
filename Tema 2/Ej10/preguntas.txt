@@ -1,0 +1,15 @@
+¿Cómo afecta cada unidad (vh, vw, %) al cambiar el tamaño de la ventana?
+
+Las unidades vh y vw cambian según el tamaño de la ventana; % depende del tamaño del contenedor.
+
+
+¿Qué diferencias hay entre .vh-box y .vw-box?
+
+
+.vh-box cambia con el tamaño de la ventana, mientras .vw-box depende más del contenedor y tiene altura fija.
+
+
+¿Cómo limita el tamaño de .percent-box la propiedad max-width?
+
+
+max-width limita el ancho de .percent-box a 500px, evitando que crezca más allá de ese tamaño.

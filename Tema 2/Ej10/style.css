@@ -1,0 +1,55 @@
+/* Estilos generales */
+.box {
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #333;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+/* Bloques de fondo */
+
+.color-box {
+    background-color: #4CAF50; /* Fondo de color sólido */
+}
+
+.image-box {
+    background-image: url('a.jpg'); /* Cambia la ruta a tu imagen */
+    background-size: cover;
+    background-position: center;
+}
+
+.gradient-box {
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradiente de fondo */
+}
+
+.multiple-box {
+    background-image: url('snoop.jpg'), linear-gradient(to right, rgba(255, 126, 95, 0.8), rgba(254, 180, 123, 0.8));
+    background-size: cover, cover;
+    background-position: center, center;
+}
+
+.text-box {
+    background-color: rgba(0, 123, 255, 0.5); 
+}
+
+
+.vh-box {
+    width: 50vw; /* Ancho del 50% del viewport width */
+    height: 30vh; /* Alto del 30% del viewport height */
+    background-color: #ffcc00;
+}
+
+.vw-box {
+    width: 80%; /* Ancho del 80% del contenedor */
+    height: 200px; /* Alto de 200px */
+    background-color: #ff6699;
+}
+
+.percent-box {
+    width: 60%; /* Ancho del 60% del contenedor */
+    min-height: 200px; /* Altura mínima de 200px */
+    max-height: 500px; /* Altura máxima de 500px */
+    background-color: #66ccff;
+}

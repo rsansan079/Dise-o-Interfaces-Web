@@ -1,0 +1,28 @@
+
+section {
+    padding: 50px;
+    color: white;
+    font-size: 1.2em;
+    min-height: 100vh; 
+}
+
+/* Sección con fondo y background-attachment scroll */
+#seccion1 {
+    background-image: url('https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-attachment: scroll;
+}
+
+/* Sección con fondo y background-attachment fixed */
+#seccion2 {
+    background-image: url('https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Sección con fondo y background-attachment local */
+#seccion3 {
+    background-image: url('https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-attachment: local;
+}
