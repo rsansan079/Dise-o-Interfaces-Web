@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedad Display</title>
+    <link rel="stylesheet" href="display.css">
+</head>
+<body>
+    <h1>Ejemplo de la Propiedad CSS Display</h1>
+    <p>
+        La propiedad displayen CSS determina cómo se comporta un elemento en el flujo del documento. 
+       
+    </p>
+    <ul>
+        <li><b>block</b>: El elemento ocupa todo el ancho disponible y comienza en una nueva línea.</li>
+        <li><b>inline</b>: El elemento ocupa solo el espacio necesario y no interrumpe el flujo en línea.</li>
+        <li><b>inline-block</b>: Combina características de block (permite definir ancho y alto) y inline.</li>
+        <li><b>none</b>: Oculta el elemento completamente, eliminándolo del flujo del documento.</li>
+    </ul>
+
+    <div id="demo">
+
+        <div class="block">Soy un elemento block</div>
+        <span class="inline">Soy un elemento inline</span>
+        <span class="inline">Otro inline</span>
+        <div class="inline-block">Soy un inline-block</div>
+        <div class="hidden">No deberías verme inicialmente</div>
+    </div>
+
+    <button id="toggleButton">Mostrar/Ocultar Elemento</button>
+
+    
+</body>
+</html>
