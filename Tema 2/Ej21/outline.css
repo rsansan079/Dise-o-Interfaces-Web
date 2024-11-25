@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section {
+    padding: 20px;
+    background-color: #ffffff;
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#style-outline {
+    outline: 3px solid #007BFF;
+}
+
+#width-outline {
+    outline: 5px solid #28A745;
+}
+
+#offset-outline {
+    outline: 2px dashed #FFC107;
+    outline-offset: 10px;
+}

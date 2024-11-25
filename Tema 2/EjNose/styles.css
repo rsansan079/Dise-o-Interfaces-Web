@@ -1,0 +1,22 @@
+h1 {
+
+color: aquamarine;
+
+}
+
+.titulo {
+
+    color: blueviolet;
+}
+
+#parrafo {
+    color: green;
+}
+
+div .texto {
+    color: purple !important;
+}
+
+p {
+    color: gray;
+}

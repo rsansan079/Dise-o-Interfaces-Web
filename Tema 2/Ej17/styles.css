@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.seccion-1 {
+    margin: 20px;
+    background-color: lightblue;
+    padding: 10px;
+    border: 1px solid darkblue;
+}
+
+.seccion-2 {
+    margin: 10px 20px 30px 40px;
+    background-color: lightcoral;
+    padding: 10px;
+    border: 1px solid darkred;
+}
+
+.seccion-3 {
+    display: flex;
+    justify-content: center; 
+    margin-top: 50px;
+}
+
+.seccion-3 button {
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: lightgreen;
+    border: 1px solid darkgreen;
+    cursor: pointer;
+    font-size: 16px;
+}

@@ -1,0 +1,19 @@
+ol.tareas {
+    list-style-type: decimal-leading-zero;
+    list-style-position: inside;
+    color: #003366;
+}
+
+
+ul.materiales {
+    list-style-type: square;
+    list-style-position: outside;
+    color: #2a7a1f;
+}
+
+
+ul.recursos {
+    list-style-image: url('https://cdn.pixabay.com/photo/2013/04/01/10/57/manual-98728_1280.png'); /* Asegúrate de colocar la imagen 'icono-libro.png' en el mismo directorio */
+    list-style-position: inside;
+    color: #444444;
+}
