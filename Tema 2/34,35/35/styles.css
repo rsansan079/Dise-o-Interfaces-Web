@@ -1,0 +1,25 @@
+body {
+    color: #444; 
+    font-family: Arial, sans-serif; 
+}
+
+section p {
+    font-family: "Georgia", serif;
+}
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+#override {
+    color: blue; 
+}
+
+.title {
+    font-size: 3em; 
+}
+
+footer p {
+    color: #555 !important; 
+}

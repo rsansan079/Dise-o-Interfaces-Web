@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 24px;
+}
+
+.contacto-section {
+    background-color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contacto-section h2 {
+    font-size: 28px;
+}
+
+.contacto-section .info {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.contacto-section .info p {
+    margin: 10px 0;
+}
+
+.phone-number {
+    background-color: #eaeaea;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.subscribe-section {
+    margin-top: 40px;
+}
+
+.subscribe-section p {
+    font-size: 18px;
+}
+
+.subscribe-section input[type="email"] {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    width: 300px;
+}
+
+.subscribe-section input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.ratings {
+    margin-top: 30px;
+}
+
+.ratings span {
+    font-size: 30px;
+    color: gold;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #232323;
+}
+
+footer a {
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+
+footer .payment-icons img {
+    width: 40px;
+    margin: 0 10px;
+}
