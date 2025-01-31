@@ -1,0 +1,45 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Estilos para el contenedor del audio */
+.audio-container {
+    text-align: center;
+}
+
+/* Personalización del reproductor */
+audio {
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #007acc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #007acc;
+}
+
+/* Estilos de controles en navegadores WebKit */
+audio::-webkit-media-controls-panel {
+    background-color: #005999;
+    border-radius: 10px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-volume-slider {
+    filter: brightness(0.9);
+}
+
+/* Mensaje de error si no se carga el audio */
+audio + p {
+    color: #d9534f;
+    font-size: 16px;
+    font-weight: bold;
+}
