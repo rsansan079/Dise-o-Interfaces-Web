@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación en Details</title>
+    <style>
+        details > div {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding: 0 10px;
+        }
+
+        details[open] > div {
+            max-height: 200px; /* Ajusta según el contenido */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <details>
+        <summary>Haz clic para ver más</summary>
+        <div>
+            <p>Este es el contenido del details que se muestra con una animación suave.</p>
+        </div>
+    </details>
+
+</body>
+</html>

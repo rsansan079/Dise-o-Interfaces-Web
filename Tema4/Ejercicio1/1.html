@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <style>
+        #detalles {
+            display: block;
+        }
+    </style>
+     <script>
+        function toggleDetalles() {
+            var detalles = document.getElementById("detalles");
+            if (detalles.style.display === "none") {
+                detalles.style.display = "block";
+            } else {
+                detalles.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Este es un párrafo con un texto <cualquiera class="sdfsdfsdfsdfsdfsdfsdfdssdf"></cualquiera></p>
+    <h2><a href="javascript:void(0);" onclick="toggleDetalles()">Mostrar más</a></h2>
+    <div id="detalles">
+        <p>Estos son los detalles que se pueden ocultar o mostrar al hacer clic en "Mostrar más".</p>
+    </div>
+</body>
+</html></div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color según navegador</title>
+    <style>
+        body {
+            background-color: white; /* Color por defecto */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function detectBrowser() {
+            let userAgent = navigator.userAgent;
+            let isOpera = userAgent.includes("OPR") || userAgent.includes("Opera");
+            let isChrome = userAgent.includes("Chrome") && !isOpera;
+            
+            if (isChrome) {
+                document.body.style.backgroundColor = "lightblue"; // Color para Chrome
+            } else if (isOpera) {
+                document.body.style.backgroundColor = "lightgreen"; // Color para Opera
+            }
+        }
+        detectBrowser();
+    </script>
+</body>
+</html>

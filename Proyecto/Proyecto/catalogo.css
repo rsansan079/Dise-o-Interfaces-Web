@@ -1,135 +1,232 @@
-/* Estilos generales para el cuerpo de la página */
+/* Estilo del cuerpo */
 body {
-    font-family: Arial, sans-serif; /* Fuente principal */
-    margin: 0; /* Elimina los márgenes por defecto */
-    padding: 0; /* Elimina el relleno por defecto */
-    background-color: #1c1c1c; /* Fondo oscuro */
-    color: white; /* Texto en color blanco para contraste */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1c1c1c;
+    color: white;
 }
 
-/* Estilos para el encabezado (header) */
+/* Estilo de la cabecera */
 header {
-    display: flex; /* Flexbox para alinear elementos horizontalmente */
-    justify-content: space-between; /* Espaciado entre el logo y la navegación */
-    align-items: center; /* Alinea verticalmente los elementos */
-    background-color: #232323; /* Fondo ligeramente más claro que el body */
-    padding: 15px; /* Relleno interno */
+    display: flex;
+    /* Diseña una disposición horizontal */
+    justify-content: space-between;
+    /* Espacia los elementos de la cabecera */
+    align-items: center;
+    background-color: #232323;
+    padding: 15px;
+    position: sticky;
+    /* Fijamos la cabecera en la parte superior */
+    top: 0;
+    z-index: 100;
+    /* Superposición */
 }
 
-/* Estilo para el logo dentro del header */
+/* Estilo del logo en la cabecera */
 header img {
-    height: 50px; /* Altura fija para el logo */
+    height: 50px;
 }
 
-/* Clase específica para el logo (redundante en este caso, puede fusionarse con header img) */
-.logo img {
-    height: 50px; /* Altura fija para el logo */
+/* Botones de navegación del header */
+header nav button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    /* Bordes redondeados */
+    margin-right: 10px;
 }
 
-/* Estilo para los enlaces de navegación dentro del header */
-header nav a {
-    color: white; /* Enlaces en color blanco */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    margin-left: 20px; /* Espaciado entre enlaces */
-    font-size: 16px; /* Tamaño de texto de los enlaces */
+/* Efecto hover en los botones */
+header nav button:hover {
+    background-color: #777;
+    /* Aclara el boton*/
 }
 
-/* Estilos para la sección hero (principal) */
 .hero {
-    text-align: center; /* Centra el contenido horizontalmente */
-    position: relative; /* Necesario para posicionar el título encima de la imagen */
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
 }
 
-/* Imagen principal dentro de la sección hero */
-.hero img {
-    width: 100%; /* Imagen ocupa todo el ancho */
-    height: 400px; /* Altura fija */
-    object-fit: cover; /* Ajusta la imagen sin distorsionar la proporción */
+/* Imagen de fondo en héroe */
+.hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    z-index: 1;
 }
 
-/* Título dentro de la sección hero */
-.hero h1 {
-    position: absolute; /* Posiciona el título encima de la imagen */
-    top: 30px; /* Distancia desde la parte superior */
-    left: 20px; /* Distancia desde la izquierda */
-    font-size: 48px; /* Tamaño del texto */
-    font-family: 'Courier New', Courier, monospace; /* Fuente alternativa */
-    color: #f5f5f5; /* Color ligeramente más claro que el blanco */
-}
 
-/* Contenedor para los filtros */
+
+/* Filtros de búsqueda */
 .filters {
-    display: flex; /* Flexbox para alinear elementos horizontalmente */
-    justify-content: center; /* Centra los filtros en el contenedor */
-    padding: 20px; /* Relleno interno */
+    display: flex;
+    /* Diseño en línea para los filtros */
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    background-color: #2c2c2c;
+    position: sticky;
+    top: 80px;
+    z-index: 90;
+    /* Superposición */
 }
 
-/* Campo de búsqueda dentro de los filtros */
+/* Campo de búsqueda en los filtros */
 .filters input[type="search"] {
-    padding: 10px; /* Relleno interno del campo */
-    font-size: 16px; /* Tamaño del texto */
-    border-radius: 5px; /* Bordes redondeados */
-    border: none; /* Sin bordes */
-    margin-right: 10px; /* Espaciado entre el campo y el botón */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    /* Bordes redondeados */
+    border: none;
+    width: 200px;
 }
 
-/* Botones dentro de los filtros */
+/* filtros */
 .filters button {
-    padding: 10px 20px; /* Relleno interno */
-    font-size: 16px; /* Tamaño del texto */
-    background-color: #555; /* Color de fondo oscuro */
-    color: white; /* Texto en blanco */
-    border: none; /* Sin bordes */
-    border-radius: 5px; /* Bordes redondeados */
-    margin-right: 10px; /* Espaciado entre botones */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    /* Bordes redondeados */
 }
 
-/* Contenedor para el catálogo */
+/* Efecto hover en los botones de los filtros */
+.filters button:hover {
+    background-color: #777;
+}
+
+/* Catálogo de productos */
 .catalogue {
-    display: grid; /* Diseño en cuadrícula */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Columnas adaptables al ancho */
-    gap: 20px; /* Espaciado entre los elementos del catálogo */
-    padding: 20px; /* Relleno interno */
+    display: grid;
+    /* Diseño en cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Ajuste dinámico según el ancho disponible */
+    gap: 20px;
+    padding: 20px;
+    background-color: #1c1c1c;
 }
 
-/* Elementos individuales del catálogo */
+/* Elementos del catálogo */
 .catalogue-item {
-    background-color: #2c2c2c; /* Fondo ligeramente más claro */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 15px; /* Relleno interno */
-    text-align: center; /* Centra el contenido dentro del elemento */
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    /* Bordes redondeados */
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    /* Animación de escala al pasar el cursor */
 }
 
-/* Imagen dentro de cada elemento del catálogo */
+/* Efecto hover en catálogo */
+.catalogue-item:hover {
+    transform: scale(1.05);
+    /* Aumenta ligeramente el tamaño */
+}
+
+/* Imágenes  catálogo */
 .catalogue-item img {
-    width: 100%; /* Imagen ocupa todo el ancho disponible */
-    border-radius: 10px; /* Bordes redondeados para la imagen */
+    width: 100%;
+    border-radius: 10px;
 }
 
-/* Título dentro de cada elemento del catálogo */
+/* Títulos de los elementos del catálogo */
 .catalogue-item h2 {
-    font-size: 18px; /* Tamaño del texto */
-    margin: 10px 0; /* Margen superior e inferior */
+    font-size: 18px;
+    margin: 10px 0;
 }
 
-/* Descripción dentro de cada elemento del catálogo */
+/* Descripciones del catálogo */
 .catalogue-item p {
-    font-size: 16px; /* Tamaño del texto */
-    color: #ccc; /* Texto en gris claro */
+    font-size: 16px;
+    color: #ccc;
 }
 
 /* Estilo para el pie de página (footer) */
 footer {
-    display: flex; /* Flexbox para alinear elementos horizontalmente */
-    justify-content: center; /* Centra el contenido */
-    padding: 20px; /* Relleno interno */
-    background-color: #232323; /* Fondo oscuro */
+    text-align: center;
+    /* Centra el contenido dentro del footer */
+    background-color: #232323;
+    /* Fondo oscuro */
 }
 
-/* Enlaces dentro del footer */
+footer img {
+    display: block;
+    /* Hace que las imágenes se comporten como bloques */
+    margin: 10px auto;
+    /* Centra las imágenes con un margen */
+}
+
+footer p {
+    margin: 10px 0;
+    /* Añade márgenes arriba y abajo del párrafo */
+    color: white;
+}
+
+footer div {
+    display: flex;
+    justify-content: center;
+    /* Centra los enlaces horizontalmente */
+    align-items: center;
+    /* Alinea los enlaces verticalmente */
+    gap: 20px;
+    /* Espacio entre los enlaces */
+}
+
 footer a {
-    margin: 0 10px; /* Espaciado horizontal entre enlaces */
-    color: white; /* Enlaces en blanco */
-    font-size: 24px; /* Tamaño del texto */
-    text-decoration: none; /* Sin subrayado */
+    text-decoration: none;
+    /* Elimina el subrayado de los enlaces */
+    color: white;
+    /* Cambia el color de los enlaces, puedes ajustarlo */
+    font-size: 27px;
+}
+
+footer .social-info,
+footer .legal-info {
+    display: block;
+    /* Fuerza a que las secciones estén una debajo de la otra */
+    margin: 10px 0;
+    /* Espacio entre las secciones */
+}
+
+
+
+footer .payment-icons img {
+    width: 40px;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #3737e1;
+}
+
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .hero img {
+        height: 300px;
+        /* Reduce la altura de la imagen */
+    }
+
+    .filters {
+        flex-wrap: wrap;
+        /* Permite que los filtros ocupen varias líneas */
+    }
+
+    .filters button,
+    .filters input[type="search"] {
+        width: 100%;
+        /* Los botones y campos ocupan el ancho completo */
+        margin: 5px 0;
+        /* Espaciado entre elementos */
+    }
 }

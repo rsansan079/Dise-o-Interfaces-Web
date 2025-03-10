@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactos - Demon</title>
-    <link rel="stylesheet" href="contacto.css">    
+    <title>Contacto - Demon</title>
+    <link rel="stylesheet" href="contacto.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script> <!-- Incluir libreria GSAP -->
 </head>
+
 <body>
 
     <header>
-        <img src="ImagenesProyecto/Logo.png" alt="Demon Logo">
-        <h1>CONTACTOS</h1>
-        <img src="ImagenesProyecto/Letras loog.png" alt="Letras">
+        <div class="header-container">
+            <img src="ImagenesProyecto/Logo.png" alt="Demon Logo" class="logo">
+            <img src="ImagenesProyecto/Letras loog.png" alt="Letras" class="letras">
+        </div>
         <nav>
-            <button onclick="window.location.href='Inicio.html'">Inicio</button>
-            <button onclick="window.location.href='Catalogo.html'">Catalogo</button>
+            <button onclick="location.href='Catalogo.html'">Catálogo</button>
+            <button onclick="location.href='Inicio.html'">Inicio</button>
+            <button id="themeToggle">Cambiar tema</button>
         </nav>
     </header>
+
+    <div id="welcomeMessage" style="display: none; text-align: center; margin: 20px; font-size: 24px; color: #f5f5f5;">
+        ¡Bienvenido a nuestra página de contacto!
+    </div>
+
+    <h1>CONTACTO</h1>
 
     <div class="contacto-section">
         <h2>Si quieres contactar con nosotros puedes hacerlo por:</h2>
         <div class="info">
             <p>Llamando a nuestro Servicio de Atención al cliente</p>
-            <div class="phone-number">602 24 79 04</div>
+            <div class="telefono">602 24 79 04</div>
+        </div>
+        <div class="center-image">
+            <img src="ImagenesProyecto/contacto.webp" alt="Descripción de la imagen">
         </div>
 
         <div class="subscribe-section">
             <p>¡Suscríbete a nuestras noticias con novedades y ofertas increíbles!</p>
-            <form action="#" method="post">
-                <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                <input type="submit" value="Suscribirse">
-                <p>Al inscribirte apruebas la <a href="#">Política de privacidad</a></p>
-            </form>
+            <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
+            <input type="submit" value="Suscribirse" onclick="suscribirse()">
+            <p id="mensaje"></p>
+            <p id="aprobaciónPoliticaPrivacidad">Al inscribirte apruebas la <a href="proteccion/politicaPrivacidad.html">Política de privacidad</a></p>
         </div>
 
         <div class="ratings">
@@ -41,17 +54,74 @@
     </div>
 
     <footer>
-                <img src="ImagenesProyecto/RedesSociales.jpg" alt="Redes">
-        
-
-        
-
+        <img src="ImagenesProyecto/RedesSociales.jpg" alt="Redes">
+        <p>&copy; 2025 Demon. Todos los derechos reservados.</p>
         <div>
-            <a href="#">Aviso Legal</a> | 
-            <a href="#">Política y privacidad</a> | 
-            <a href="#">Política de cookies</a>
+            <img src="ImagenesProyecto/cofinanciado por el fondo Social Europeo.png" alt="Fondo Social Europeo">
+            <img src="ImagenesProyecto/metodos_de_pago.png" alt="metodos_de_pago">
+        </div>
+        <div>
+            <a href="proteccion/avisoLegal.html">Aviso Legal</a> |
+            <a href="proteccion/politicaPrivacidad.html">Política y privacidad</a> |
+            <a href="proteccion/politicaCookies.html">Política de cookies</a>
         </div>
     </footer>
 
+    <script>
+        // CAMBIAR TEMA
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggle = document.getElementById("themeToggle");
+            const body = document.body;
+
+            if (localStorage.getItem("theme") === "light") {
+                body.classList.remove("dark-theme");
+            } else {
+                body.classList.add("dark-theme");
+                localStorage.setItem("theme", "dark");
+            }
+
+            themeToggle.addEventListener("click", () => {
+                body.classList.toggle("dark-theme");
+                if (body.classList.contains("dark-theme")) {
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    localStorage.setItem("theme", "light");
+                }
+            });
+        });
+
+        // SUSCRIPCIÓN
+        function suscribirse() {
+            const email = document.getElementById("email").value;
+            const mensaje = document.getElementById("mensaje");
+
+            mensaje.classList.remove("mensaje-exito", "mensaje-error");
+
+            const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (regex.test(email)) {
+                mensaje.classList.add("mensaje-exito");
+                mensaje.innerHTML = `¡Enhorabuena! Te has suscrito. Le llegará a este correo las notificaciones para no perderte nada: <strong>${email}</strong>`;
+            } else {
+                mensaje.classList.add("mensaje-error");
+                mensaje.innerHTML = "Por favor, ingresa un correo electrónico válido.";
+            }
+        }
+
+        // Animación de bienvenida
+        document.addEventListener("DOMContentLoaded", () => {
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            welcomeMessage.style.display = "block"; // Muestra el mensaje
+
+            gsap.from(welcomeMessage, {
+                duration: 2,
+                y: -50,
+                opacity: 0,
+                scale: 0.5,
+                ease: "bounce.out"
+            });
+        });
+    </script>
+
 </body>
+
 </html>
