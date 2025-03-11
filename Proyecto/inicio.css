@@ -1,0 +1,184 @@
+/* Estilos generales para el cuerpo del documento */
+html body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #121212; /* Color de fondo oscuro */
+    color: #f5f5f5; /* Texto en color claro para buen contraste */
+}
+
+/* Estilos para el encabezado */
+html header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #232323; /* Fondo oscuro */
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Estilo del logo en la cabecera */
+html header img {
+    height: 50px;
+    animation: aparecerLogo 1s ease-in-out;
+}
+
+/* Botones de navegación del header */
+html header nav button {
+    background-color: #555; /* Fondo de los botones */
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    animation: aparecerBotones 0.5s ease-in-out;
+}
+
+/* Efecto hover en los botones */
+html header nav button:hover {
+    background-color: #777; /* Aclara el botón */
+}
+
+.hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+/* Estilos para la sección de contenido */
+html .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+html .content .novedades,
+html .content .tecnologia {
+    flex: 1 1 45%;
+    margin: 20px;
+    text-align: center;
+}
+
+html .content img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+#imagen_2 {
+    margin: 0 auto;
+    width: 400px;
+}
+
+#h2_1 {
+    text-align: center;
+}
+
+/* Estilo para las listas */
+ul {
+    list-style: square;
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* Pie de página */
+html footer {
+    text-align: center;
+    background-color: #232323; /* Fondo oscuro */
+}
+
+html footer img {
+    display: block;
+    margin: 10px auto;
+}
+
+html footer p {
+    margin: 10px 0;
+    color: white; /* Texto blanco */
+}
+
+html footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+html footer a {
+    text-decoration: none;
+    color: white; /* Texto blanco */
+    font-size: 27px;
+}
+
+html footer .social-info,
+html footer .legal-info {
+    display: block;
+    margin: 10px 0;
+}
+
+html footer .payment-icons img {
+    width: 40px;
+    margin: 0 10px;
+}
+
+html footer a:hover {
+    color: #3737e1; /* Color al pasar el mouse */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    html .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    html .content .novedades,
+    html .content .tecnologia {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    html header {
+        flex-direction: column;
+    }
+
+    html header nav button {
+        width: 90%;
+        margin: 5px 0;
+    }
+}
+
+/* Animación para los botones */
+@keyframes aparecerBotones {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación para el logo */
+@keyframes aparecerLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,255 @@
+/* Estilo del cuerpo */
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #ffffff; 
+    color: rgb(20, 20, 20); 
+    line-height: 1.6;
+}
+
+/* Mejora accesibilidad en el enfoque de elementos */
+*:focus {
+    outline: 2px solid #005fcc; /* Contorno visible para navegación con teclado */
+    outline-offset: 2px;
+}
+
+/* Estilo de la cabecera */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee6e6;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Estilo del logo en la cabecera */
+header img {
+    height: 50px;
+    animation: aparecerLogo 0.5s ease-in-out;
+}
+
+/* Botones de navegación del header */
+header nav button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    animation: aparecerBotones 0.5s ease-in-out;
+}
+
+/* Efecto hover en los botones */
+header nav button:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+/* Imagen de fondo en héroe */
+.hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    z-index: 1;
+}
+.hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+/* Filtros de búsqueda */
+.filters {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    background-color: #e9e8e8;
+    position: sticky;
+    top: 80px;
+    z-index: 90;
+}
+
+/* Campo de búsqueda en los filtros */
+.filters input[type="search"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    width: 200px;
+}
+
+/* filtros */
+.filters button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fdfdfd;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Efecto hover en los botones de los filtros */
+.filters button:hover {
+    background-color: #fffafa;
+}
+
+/* Catálogo de productos accesible */
+.catalogue {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #cac8c8;
+}
+
+/* Elementos del catálogo */
+.catalogue-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Accesibilidad en catálogo */
+.catalogue-item:focus {
+    outline: 3px solid #005fcc;
+}
+
+/* Efecto hover en catálogo */
+.catalogue-item:hover {
+    transform: scale(1.05);
+}
+
+/* Imágenes catálogo */
+.catalogue-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Títulos de los elementos del catálogo */
+.catalogue-item h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Descripciones del catálogo */
+.catalogue-item p {
+    font-size: 16px;
+    color: #000000;
+}
+
+/* Estilo para el modal accesible */
+dialog {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    background: #fdfdfd;
+    color: #000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Imagen dentro del modal */
+dialog img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Botón de cerrar modal */
+dialog button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+dialog button:hover {
+    background-color: #777;
+}
+/* Pie de página accesible */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+/* Estilo de los enlaces accesibles */
+footer a {
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+    font-size: 18px;
+}
+
+footer a:focus {
+    outline: 2px solid #005fcc;
+    outline-offset: 2px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .hero img {
+        height: 300px;
+    }
+
+    .filters {
+        flex-wrap: wrap;
+    }
+
+    .filters button,
+    .filters input[type="search"] {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+/* Animación para los botones */
+@keyframes aparecerBotones {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación para el logo */
+@keyframes aparecerLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

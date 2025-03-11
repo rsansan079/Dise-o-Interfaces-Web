@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Demon</title>
+    <link rel="stylesheet" href="contacto.css">
+    
+    <!-- Librerías externas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="ImagenesProyecto/Logo.png" alt="Logotipo de Demon" class="logo">
+            <img src="ImagenesProyecto/Letras loog.png" alt="Texto de Demon" class="letras">
+        </div>
+        <nav>
+            <button onclick="location.href='Catalogo.html'" aria-label="Ir al catálogo de productos" class="nav-button">Catálogo</button>
+            <button onclick="location.href='Inicio.html'" aria-label="Ir a la página de inicio" class="nav-button">Inicio</button>
+            <button id="themeToggle" aria-label="Cambiar tema de la página" class="nav-button">Cambiar tema</button>
+        </nav>
+    </header>
+
+    <div id="welcomeMessage" aria-live="polite" style="display: none; text-align: center; margin: 20px; font-size: 24px; color: #f5f5f5;">
+        ¡Bienvenido a nuestra página de contacto!
+    </div>
+
+    <h1>CONTACTO</h1>
+
+    <div class="contacto-section">
+        <h2>Si quieres contactar con nosotros puedes hacerlo por:</h2>
+        <div class="info">
+            <p>Llamando a nuestro Servicio de Atención al cliente</p>
+            <div class="telefono" aria-label="Número de teléfono de contacto">602 24 79 04</div>
+        </div>
+        <div class="center-image">
+            <img src="ImagenesProyecto/contacto.webp" alt="Imagen representativa de contacto" aria-describedby="contact-image-description">
+        </div>
+
+        <div id="contact-image-description" style="display: none;">Imagen representativa de contacto mostrando a los agentes.</div>
+
+        <!-- Suscripción -->
+        <div class="subscribe-section">
+            <p>¡Suscríbete a nuestras noticias con novedades y ofertas increíbles!</p>
+            <label for="email" class="email-label">Correo electrónico</label>
+            <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required aria-describedby="email-description">
+            <button type="submit" onclick="suscribirse()" aria-label="Suscribirse a las novedades">Suscribirse</button>
+            <p id="mensaje" role="alert"></p>
+            <p id="aprobaciónPoliticaPrivacidad">Al inscribirte apruebas la <a href="proteccion/politicaPrivacidad.html">Política de privacidad</a></p>
+        </div>
+
+        <div id="email-description" style="display: none;">Campo para ingresar el correo electrónico en el formulario de suscripción.</div>
+
+        <!-- Gráfico interactivo con Chart.js -->
+        <div id="chart-container">
+            <canvas id="myChart" width="200" height="50" aria-label="Gráfico de ventas del año"></canvas>
+        </div>
+
+        <div class="ratings">
+            <h3>VALORACIONES</h3>
+            <span>★ ★ ★ ★ ★ </span>
+        </div>
+
+        <!-- Emoticono de moto interactivo -->
+        <div id="motorcycle" aria-hidden="true" style="font-size: 40px; position: relative; margin-top: 20px;">
+            🏍️ <!-- Emoticono de la moto -->
+        </div>
+    </div>
+
+    <footer>
+        <img src="ImagenesProyecto/RedesSociales.jpg" alt="Logos de redes sociales" class="socials" aria-label="Redes sociales">
+        <p>&copy; 2025 Demon. Todos los derechos reservados.</p>
+        <div>
+            <img src="ImagenesProyecto/cofinanciado por el fondo Social Europeo.png" alt="Logo del Fondo Social Europeo">
+            <img src="ImagenesProyecto/metodos_de_pago.png" alt="Métodos de pago disponibles" class="payment-methods">
+        </div>
+        <div>
+            <a href="proteccion/avisoLegal.html" aria-label="Leer el aviso legal">Aviso Legal</a> |
+            <a href="proteccion/politicaPrivacidad.html" aria-label="Leer la política de privacidad">Política de privacidad</a> |
+            <a href="proteccion/politicaCookies.html" aria-label="Leer la política de cookies">Política de cookies</a>
+        </div>
+    </footer>
+
+    <script>
+        // Cambiar tema
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggle = document.getElementById("themeToggle");
+            const body = document.body;
+
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "light") {
+                body.classList.remove("dark-theme");
+            } else {
+                body.classList.add("dark-theme");
+                localStorage.setItem("theme", "dark");
+            }
+
+            themeToggle.addEventListener("click", () => {
+                body.classList.toggle("dark-theme");
+                if (body.classList.contains("dark-theme")) {
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    localStorage.setItem("theme", "light");
+                }
+            });
+        });
+
+        // Suscripción
+        function suscribirse() {
+            const email = document.getElementById("email").value;
+            const mensaje = document.getElementById("mensaje");
+
+            mensaje.classList.remove("mensaje-exito", "mensaje-error");
+
+            const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (regex.test(email)) {
+                mensaje.classList.add("mensaje-exito");
+                mensaje.innerHTML = `¡Enhorabuena! Te has suscrito. Le llegará a este correo las notificaciones para no perderte nada: <strong>${email}</strong>`;
+            } else {
+                mensaje.classList.add("mensaje-error");
+                mensaje.innerHTML = "Por favor, ingresa un correo electrónico válido.";
+            }
+        }
+
+        // Animación de bienvenida
+        document.addEventListener("DOMContentLoaded", () => {
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            welcomeMessage.style.display = "block"; // Muestra el mensaje
+
+            gsap.from(welcomeMessage, {
+                duration: 2,
+                y: -50,
+                opacity: 0,
+                scale: 0.5,
+                ease: "bounce.out"
+            });
+
+            // Animación de la moto
+            gsap.to("#motorcycle", {
+                x: 850,
+                duration: 5,
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut"
+            });
+        });
+
+        // Gráfico con Chart.js
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+                datasets: [{
+                    label: 'Ventas',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

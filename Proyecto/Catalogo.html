@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Demon</title>
+  <!-- Hoja de estilo predeterminada -->
+  <link id="theme-stylesheet" rel="stylesheet" href="catalogo.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <img src="ImagenesProyecto/Logo.png" alt="Demon Logo" class="logo">
+      <img src="ImagenesProyecto/Letras loog.png" alt="Texto del logotipo de Demon" class="letras">
+    </div>
+    <nav aria-label="Menú de navegación">
+      <button onclick="window.location.href='Inicio.html'">Inicio</button>
+      <button onclick="window.location.href='Contacto.html'">Contacto</button>
+      <button id="theme-toggle" aria-label="Cambiar el tema de la página">Cambiar tema</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="sr-only">Bienvenido al catálogo de Demon</h1>
+      <video src="ImagenesProyecto/video.mp4" autoplay muted loop aria-label="Video promocional de Demon"></video>
+    </section>
+
+    <section class="filters" aria-labelledby="filters-title">
+      <h2 id="filters-title">Filtrar y ordenar</h2>
+      <label for="search-input">Buscar:</label>
+      <input type="search" id="search-input" placeholder="Buscar" onkeyup="filterCatalog()" aria-describedby="filters-title">
+      <button onclick="sortByPrice('high')">Precios más caros</button>
+      <button onclick="sortByPrice('low')">Precios más baratos</button>
+      <button onclick="sortByRating()">Ordenar por rating</button>
+    </section>
+
+    <section class="catalogue" id="catalogue" aria-labelledby="catalogue-title">
+      <h2 id="catalogue-title">Catálogo de Motos</h2>
+      <div class="catalogue-item" tabindex="0" role="button" data-price="49999" data-rating="4.5" data-description="Moto de alta gama con gran rendimiento." data-image="ImagenesProyecto/r111.jpg">
+        <img src="ImagenesProyecto/r111.jpg" alt="Moto modelo Daemon R1000">
+        <h3>Daemon R1000</h3>
+        <p>49.999 €</p>
+      </div>
+      <div class="catalogue-item" tabindex="0" role="button" data-price="24999" data-rating="4" data-description="Conducción cómoda y segura." data-image="ImagenesProyecto/multi.jpg">
+        <img src="ImagenesProyecto/multi.jpg" alt="Moto modelo Daemon World">
+        <h3>Daemon World</h3>
+        <p>24.999 €</p>
+      </div>
+      <div class="catalogue-item" tabindex="0" role="button" data-price="32000" data-rating="5" data-description="Potencia y estilo en cada kilómetro." data-image="ImagenesProyecto/sr.jpg">
+        <img src="ImagenesProyecto/sr.jpg" alt="Moto modelo Daemon Road">
+        <h3>Daemon Road</h3>
+        <p>32.000 €</p>
+      </div>
+      <div class="catalogue-item" tabindex="0" role="button" data-price="14999" data-rating="3" data-description="Versatilidad y buen precio." data-image="ImagenesProyecto/aaaaa.jpg">
+        <img src="ImagenesProyecto/aaaaa.jpg" alt="Moto modelo Daemon Devil">
+        <h3>Daemon Devil</h3>
+        <p>14.999 €</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="product-dialog" aria-labelledby="dialog-title">
+    <h2 id="dialog-title"></h2>
+    <img id="dialog-image" src="" alt="">
+    <p id="dialog-description"></p>
+    <p id="dialog-price"></p>
+    <button id="close-dialog">Cerrar</button>
+  </dialog>
+
+  <footer>
+    <img src="ImagenesProyecto/RedesSociales.jpg" alt="Enlaces a redes sociales">
+    <p>&copy; 2025 Demon. Todos los derechos reservados.</p>
+    <details>
+      <summary>Más información</summary>
+      <p>Este catálogo es una recopilación de nuestros mejores modelos disponibles.</p>
+      <p>Contáctanos para más detalles sobre financiación y garantías.</p>
+    </details>
+    <div>
+      <img src="ImagenesProyecto/cofinanciado por el fondo Social Europeo.png" alt="Cofinanciado por el Fondo Social Europeo">
+      <img src="ImagenesProyecto/metodos_de_pago.png" alt="Métodos de pago aceptados">
+      <img src="ImagenesProyecto/certificado.jpg" alt="Certificado de calidad">
+    </div>
+    <nav aria-label="Información legal">
+      <a href="proteccion/avisoLegal.html">Aviso Legal</a> |
+      <a href="proteccion/politicaPrivacidad.html">Política de privacidad</a> |
+      <a href="proteccion/politicaCookies.html">Política de cookies</a>
+    </nav>
+  </footer>
+
+  <script>
+    window.onload = function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      const themeStylesheet = document.getElementById('theme-stylesheet');
+
+      if (savedTheme === 'light') {
+        themeStylesheet.setAttribute('href', 'catalogo-claro.css');
+      } else {
+        themeStylesheet.setAttribute('href', 'catalogo.css');
+      }
+    };
+
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      const themeStylesheet = document.getElementById('theme-stylesheet');
+
+      if (themeStylesheet.href.includes('catalogo.css')) {
+        themeStylesheet.setAttribute('href', 'catalogo-claro.css');
+        localStorage.setItem('theme', 'light');
+      } else {
+        themeStylesheet.setAttribute('href', 'catalogo.css');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    function filterCatalog() {
+      const searchInput = document.getElementById('search-input').value.toLowerCase();
+      const items = document.querySelectorAll('.catalogue-item');
+      items.forEach(item => {
+        const name = item.querySelector('h2').textContent.toLowerCase();
+        item.style.display = name.includes(searchInput) ? '' : 'none';
+      });
+    }
+
+    function sortByPrice(order) {
+      const catalogue = document.getElementById('catalogue');
+      const items = Array.from(catalogue.querySelectorAll('.catalogue-item'));
+      items.sort((a, b) => {
+        const priceA = parseInt(a.getAttribute('data-price'));
+        const priceB = parseInt(b.getAttribute('data-price'));
+        return order === 'high' ? priceB - priceA : priceA - priceB;
+      });
+      items.forEach(item => catalogue.appendChild(item));
+    }
+
+    function sortByRating() {
+      const catalogue = document.getElementById('catalogue');
+      const items = Array.from(catalogue.querySelectorAll('.catalogue-item'));
+      items.sort((a, b) => {
+        const ratingA = parseFloat(a.getAttribute('data-rating'));
+        const ratingB = parseFloat(b.getAttribute('data-rating'));
+        return ratingB - ratingA;
+      });
+      items.forEach(item => catalogue.appendChild(item));
+    }
+
+    const catalogueItems = document.querySelectorAll('.catalogue-item');
+    const dialog = document.getElementById('product-dialog');
+    const dialogTitle = document.getElementById('dialog-title');
+    const dialogImage = document.getElementById('dialog-image');
+    const dialogDescription = document.getElementById('dialog-description');
+    const dialogPrice = document.getElementById('dialog-price');
+    const closeDialog = document.getElementById('close-dialog');
+
+    catalogueItems.forEach(item => {
+      item.addEventListener('click', () => {
+        dialogTitle.textContent = item.querySelector('h3').textContent;
+        dialogImage.src = item.getAttribute('data-image');
+        dialogDescription.textContent = item.getAttribute('data-description');
+        dialogPrice.textContent = "Precio: " + item.querySelector('p').textContent;
+        dialog.showModal();
+      });
+    });
+
+    closeDialog.addEventListener('click', () => {
+      dialog.close();
+    });
+  </script>
+</body>
+
+</html>

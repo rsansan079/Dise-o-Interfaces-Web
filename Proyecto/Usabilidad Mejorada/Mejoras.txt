@@ -1,0 +1,83 @@
+CATALOGO:
+
+
+1. Accesibilidad y Navegación
+Problema: El filtro de búsqueda usa onkeyup, lo que no es ideal para accesibilidad con teclado.
+
+Solución: Añadir un botón de búsqueda para permitir a los usuarios activar el filtro manualmente.
+
+Problema: En el código, el filtro de búsqueda usa querySelector('h2'), pero los títulos de los productos son h3.
+
+Solución: Cambiar querySelector('h2') a querySelector('h3').
+
+Problema: No hay una manera clara de volver al catálogo después de abrir el diálogo de un producto.
+
+Solución: Agregar la opción de cerrar el diálogo al presionar la tecla Esc.
+
+2. Diseño Responsivo y Adaptabilidad
+Problema: No hay una mención específica a meta name="viewport" content="width=device-width, initial-scale=1.0" en el análisis.
+
+Solución: Ya está presente, pero asegurarse de que los estilos en catalogo.css utilicen flexbox o grid para una mejor adaptabilidad en móviles.
+
+Problema: Los botones en la navegación podrían ser difíciles de tocar en dispositivos móviles.
+
+Solución: Aumentar su tamaño y espaciado en CSS usando min-width: 100px; padding: 10px;.
+
+3. Interacción y Feedback
+Problema: No hay una indicación visual al pasar sobre los productos.
+
+Solución: Agregar un hover con transform: scale(1.05); y box-shadow para resaltar el producto.
+
+Problema: El cambio de tema solo afecta la hoja de estilos, pero no cambia la clase en el body.
+
+Solución: Agregar/remover una clase en el body (classList.toggle('light-mode')) para una mejor personalización del diseño.
+
+4. Compatibilidad y Pruebas
+
+
+
+CONTACTO:
+
+1. Accesibilidad y Navegación
+Problema: El formulario de suscripción no proporciona un aviso de que el campo de correo electrónico es obligatorio.
+
+Solución: Agregar el atributo aria-required="true" al campo de correo electrónico y una leyenda para el mensaje de error en caso de que el usuario deje el campo vacío.
+Problema: El campo de correo electrónico no tiene un mensaje informativo de accesibilidad.
+
+Solución: Añadir un aria-describedby="email-description" en el campo de entrada del correo y definir un <div> con la descripción del campo.
+Problema: No hay una opción de retroceder fácilmente a otras páginas desde la sección de contacto.
+
+Solución: Añadir un botón o enlace al inicio de la página de contacto que permita volver al catálogo o a la página de inicio fácilmente.
+
+
+
+2. Diseño Responsivo y Adaptabilidad
+Problema: El tamaño de los botones de navegación podría ser pequeño en pantallas táctiles, dificultando la interacción.
+
+Solución: Aumentar el tamaño de los botones con CSS usando min-width: 100px; y padding: 15px; para mejorar la interacción en dispositivos móviles.
+Problema: La imagen del centro (representativa del contacto) podría no ser visualmente adecuada en pantallas pequeñas.
+
+Solución: Modificar el ancho de la imagen con max-width: 100%; en lugar de un porcentaje fijo, permitiendo que se ajuste mejor en dispositivos móviles.
+Problema: El gráfico interactivo no se ajusta bien en pantallas más pequeñas, lo que dificulta su visualización.
+
+Solución: Utilizar un contenedor flexible con CSS para hacer que el gráfico se adapte mejor al tamaño de la pantalla.
+
+
+
+3. Interacción y Feedback
+Problema: No hay retroalimentación visual o animación para indicar que el formulario ha sido enviado correctamente.
+
+Solución: Agregar un pequeño animation o transition a los botones y un mensaje de éxito o error para indicar el estado del formulario, como ya se hace con los mensajes de éxito.
+Problema: El botón de suscripción no tiene un efecto visual claro al pasar el cursor sobre él.
+
+Solución: Añadir un hover en el botón de suscripción utilizando propiedades como transform: scale(1.1); y box-shadow para hacer que el botón sea más interactivo.
+
+
+
+4. Compatibilidad y Pruebas
+Problema: El cambio de tema solo se aplica al fondo y texto, pero no afecta a todos los elementos de la página, como los botones o la barra de navegación.
+
+Solución: Asegurar que el cambio de tema también altere los estilos de los botones y otras áreas del diseño que necesiten ser consistentes con el nuevo tema.
+Problema: El formulario de suscripción podría no funcionar correctamente en ciertos navegadores o dispositivos.
+
+Solución: Probar la compatibilidad del formulario con diferentes navegadores, asegurándose de que funcione bien en dispositivos con diferentes tamaños de pantalla.

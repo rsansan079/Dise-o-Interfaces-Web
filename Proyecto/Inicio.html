@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demon - Motocicletas</title>
+    <!-- Enlace a Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Enlace al archivo CSS externo para estilos -->
+    <link id="theme" rel="stylesheet" href="inicio.css?version=1">
+</head>
+
+<body>
+    <header class="bg-dark text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="header-container d-flex align-items-center">
+                <img src="ImagenesProyecto/Logo.png" alt="Demon Logo" class="logo" height="50">
+                <img src="ImagenesProyecto/Letras loog.png" alt="Letras" class="letras ml-2">
+            </div>
+            <nav>
+                <button class="btn btn-secondary" onclick="location.href='Catalogo.html'">Catálogo</button>
+                <button class="btn btn-secondary" onclick="location.href='Contacto.html'">Contacto</button>
+                <button class="btn btn-light" id="themeToggle">Cambiar tema</button>
+                <button class="btn btn-info" id="infoButton">Más Información</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <video class="img-fluid" controls autoplay loop>
+                <source src="ImagenesProyecto/video1.webm" type="video/webm">
+                Tu navegador no soporta el video.
+            </video>
+        </div>
+    </section>
+
+    <section class="content container my-4">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h2 id="h2_1">Novedades</h2>
+                <img id="imagen_2" src="ImagenesProyecto/una moto futurista al estilo de 2040 con la marca DEMON.png" alt="Novedades Demon" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2>Tecnología Avanzada y Seguridad Exclusiva</h2>
+                <p>Nuestras motocicletas destacan por su tecnología superior y motor de alto rendimiento. Incorporamos sistemas de seguridad innovadores para garantizar una conducción segura y emocionante. Además, ofrecemos una experiencia de conducción única con un diseño orientado a la comodidad y el máximo rendimiento.</p>
+                <h3>Características Principales</h3>
+                <ul class="list-unstyled">
+                    <li>Motores potentes y eficientes</li>
+                    <li>Sistemas de seguridad activos y pasivos</li>
+                    <li>Diseño ergonómico para mayor confort</li>
+                    <li>Conectividad integrada para control remoto</li>
+                    <li>Frenos de alto rendimiento para máxima seguridad</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Reserva -->
+    <section class="container my-4">
+        <h2>Reserva de Consulta</h2>
+        <form id="reservationForm">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Fecha de Reserva</label>
+                <input type="date" class="form-control" id="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Hora de Reserva</label>
+                <input type="time" class="form-control" id="time" required>
+            </div>
+            <div class="form-group">
+                <label for="consultationType">Tipo de Consulta</label>
+                <select class="form-control" id="consultationType" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Consulta General">Consulta General</option>
+                    <option value="Asesoría Técnica">Asesoría Técnica</option>
+                    <option value="Información sobre Productos">Información sobre Productos</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Reservar</button>
+        </form>
+    </section>
+
+    <footer class="bg-dark text-white text-center p-4">
+        <img src="ImagenesProyecto/RedesSociales.jpg" alt="Redes" class="img-fluid">
+        <p>&copy; 2025 Demon. Todos los derechos reservados.</p>
+        <div>
+            <img src="ImagenesProyecto/cofinanciado por el fondo Social Europeo.png" alt="Fondo Social Europeo" class="img-fluid">
+            <img src="ImagenesProyecto/metodos_de_pago.png" alt="metodos_de_pago" class="img-fluid">
+        </div>
+        <div class="my-2">
+            <a href="proteccion/avisoLegal.html" class="text-white">Aviso Legal</a> |
+            <a href="proteccion/politicaPrivacidad.html" class="text-white">Política y privacidad</a> |
+            <a href="proteccion/avisoLegal.html" class="text-white">Política de cookies</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript para el cambio de estilo y manejo del formulario -->
+    <script>
+        // Al cargar la página, comprobar si hay un tema guardado en localStorage
+        window.addEventListener('DOMContentLoaded', (event) => {
+            var theme = localStorage.getItem('theme');  // Obtenemos el tema guardado
+
+            // Si el tema no está guardado, se establece el tema oscuro como predeterminado
+            if (!theme) {
+                localStorage.setItem('theme', 'dark');
+                theme = 'dark';
+            }
+
+            // Aplicar el tema correspondiente
+            var themeLink = document.getElementById('theme');
+            if (theme === 'light') {
+                themeLink.setAttribute('href', 'inicio-claro.css?version=2');
+            } else {
+                themeLink.setAttribute('href', 'inicio.css?version=1');
+            }
+        });
+
+        // Cambio de tema al hacer click en el botón
+        document.getElementById('themeToggle').addEventListener('click', function () {
+            var theme = document.getElementById('theme');
+            var currentHref = theme.getAttribute('href');
+
+            // Cambiar el tema y almacenarlo en localStorage
+            if (currentHref === 'inicio.css?version=1') {
+                theme.setAttribute('href', 'inicio-claro.css?version=2');
+                localStorage.setItem('theme', 'light');  // Guardar tema claro
+            } else {
+                theme.setAttribute('href', 'inicio.css?version=1');
+                localStorage.setItem('theme', 'dark');  // Guardar tema oscuro
+            }
+        });
+
+        // Mostrar alerta al hacer clic en el botón "Más Información"
+        document.getElementById('infoButton').addEventListener('click', function () {
+            alert("En el caso de que tengas alguna dificultad, podras contactar con nosotros a través de nuestro correo electrónico en  la pagina de contacto.");
+        });
+
+        // Manejar el envío del formulario de reserva
+        document.getElementById('reservationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario por defecto
+
+            // Obtener los valores de los campos
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var date = document.getElementById('date').value;
+            var time = document.getElementById('time').value;
+            var consultationType = document.getElementById('consultationType').value;
+            var message = document.getElementById('message').value;
+
+            // Aquí puedes agregar lógica para enviar los datos a un servidor o procesarlos
+            // Por ahora, solo mostraremos un mensaje de éxito
+            alert("Gracias, " + name + "! Tu reserva ha sido realizada para el " + date + " a las " + time + ".\nTipo de consulta: " + consultationType + "\nMensaje: " + message);
+
+            // Limpiar el formulario
+            document.getElementById('reservationForm').reset();
+        });
+    </script>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
